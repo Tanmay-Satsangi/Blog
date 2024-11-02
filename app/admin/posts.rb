@@ -21,8 +21,8 @@ ActiveAdmin.register Post, as: "Post" do
 
   form do |f|
     f.inputs "Post" do 
-      f.input :title
-      f.input :description
+      f.input :title, input_html: { style: "width: 500px;  height: 50px"}
+      f.input :description, input_html: { style: "width: 500px; height: 150px" }
       f.input :image, as: :file
     end
     # f.input :topics
