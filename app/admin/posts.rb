@@ -1,5 +1,5 @@
-ActiveAdmin.register Post do
-  permit_params :title, :description, :created_at, :updated_at
+ActiveAdmin.register Post, as: "Post" do
+  permit_params :title, :description, :image, :created_at, :updated_at
 
   filter :title
   filter :created_at
@@ -11,7 +11,11 @@ ActiveAdmin.register Post do
     column :title
     column :description
     # column :topics
+    column :image do |ad|
+      image_tag url_for(ad.image), width: "40", height: "40" if ad.image.attached?
+    end
     column :created_at
+    column :updated_at
     actions
   end
 
@@ -19,6 +23,7 @@ ActiveAdmin.register Post do
     f.inputs "Post" do 
       f.input :title
       f.input :description
+      f.input :image, as: :file
     end
     # f.input :topics
     f.actions 
@@ -28,7 +33,11 @@ ActiveAdmin.register Post do
     attributes_table do 
       row :title
       row :description
+      row :image do |ad|
+        image_tag url_for(ad.image), width: "100", height: "100" if ad.image.present?
+      end
       row :created_at
+      row :updated_at
     end
   end
 end

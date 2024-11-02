@@ -19,3 +19,12 @@
     2.3 rails db:migrate
         rails db:seed
         rails server
+
+### 3 Active Storage Setup:
+    3.1 rails active_storage:install
+    3.2 rails db:migrate
+    
+    3.3 Add the active storage association in model file
+        has_one_attached :image
+
+

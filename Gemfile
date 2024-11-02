@@ -65,3 +65,5 @@ gem 'draper'
 gem 'pundit'
 
 gem "sassc-rails"
+
+gem 'pry'
