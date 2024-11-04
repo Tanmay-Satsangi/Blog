@@ -13,4 +13,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  get '/blogs', to: 'blog#list_blogs'
+  
+  get '/blog/:id', to: 'blog#get_blogs_data'
 end
